@@ -9,4 +9,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
     elif tuple_b and len(tuple_b) > 1:
         return tuple_b
     else:
-        return ()
+        return (0, 0)
