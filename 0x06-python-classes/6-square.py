@@ -15,6 +15,8 @@ class Square:
 
     - size (property): Getter method for the size of the square.
     - size (setter): Setter method for updating the size of the square.
+    - position (property): Getter method for the position of the square.
+    - position (setter): Setter method for updating the position of the square.
     - area(self): Method to calculate the area of the square.
     - my_print(self): Method to print the square pattern using '#' character.
     """
@@ -58,11 +60,18 @@ class Square:
 
     @property
     def position(self):
+        """
+        Gets the position of the square.
+
+        Returns:
+        - tuple: A tuple representing the position of the square (x, y).
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
-        if not isinstance(value, tuple) or len(value) != 2:
+        if (not isinstance(value, tuple) or len(value) != 2 or
+                not all(isinstance(j, int) and j >= 0 for j in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
