@@ -11,7 +11,7 @@ def say_my_name(first_name, last_name=""):
 
     Parameters:
     - first_name (str): The first name of the person.
-    - last_name (str, optional): The last name of the person. 
+    - last_name (str, optional): The last name of the person.
                                 Defaults to an empty string.
 
     Returns:
