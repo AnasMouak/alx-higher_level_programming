@@ -1,0 +1,46 @@
+# 3-say_my_name.txt
+
+This is a file containing doctests for the say_my_name function.
+
+# Importing the say_my_name function
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+===============
+| Valid Input |
+===============
+    ## Printing the full name ##
+
+    >>> say_my_name("Anas", "Mouak")
+    My name is Anas Mouak
+
+    Printing the first name
+
+    >>> say_my_name("Anas")
+    My name is Anas 
+
+================
+| Invalid input|
+================
+    ## Non-string last_name ##
+
+    >>> say_my_name("Anas", 11)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Anas",[1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    ## Non-string first_name ##
+
+    >>> say_my_name(11, "Mouak")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
