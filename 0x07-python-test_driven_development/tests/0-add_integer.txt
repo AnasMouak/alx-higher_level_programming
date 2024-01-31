@@ -1,0 +1,44 @@
+# 0-add_integer.txt
+
+This is a file containing doctests for the add_integer function.
+
+# Importing the add_integer function
+>>> add_integer = __import__('0-add_integer').add_integer
+
+==============
+| Valid Input|
+==============
+    ## addition of two integers or floats ##
+
+    >>> add_integer(1, 2)
+    3
+    >>> add_integer(100, -2)
+    98
+    >>> add_integer(100.3, -2)
+    98
+    >>> add_integer(-1.2, 2)
+    1
+    >>> add_integer(1, -2.3)
+    -1
+
+    ## addition with one integer, using the default value for the second integer ##
+
+    >>> add_integer(2)
+    100
+    >>> add_integer(0)
+    98
+
+================
+| Invalid input| 
+================
+    ## Adding an integer and a string ##
+
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> add_integer("anas")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
