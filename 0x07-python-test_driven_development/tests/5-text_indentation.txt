@@ -1,0 +1,60 @@
+# 5-text_indentation.txt
+
+This is a file containing doctests for the text_indentation function.
+
+# Importing the text_indentation function
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+===============
+| Valid Input |
+===============
+    ## Text with multiple spaces int the beginning and the end with characters "." ##
+
+    >>> text_indentation("Hello.   Welcome  To My  Website  ")
+    Hello.
+    <BLANKLINE>
+    Welcome  To My  Website
+
+    ## with characters "." and "?" ##
+
+    >>> text_indentation("Hi.   Are You Ready?  ")
+    Hi.
+    <BLANKLINE>
+    Are You Ready?
+    <BLANKLINE>
+
+    ## with characters "." and ":" ##
+
+    >>> text_indentation("My name is :   Anas.")
+    My name is :
+    <BLANKLINE>
+    Anas.
+    <BLANKLINE>
+
+    ## Text without any characters ##
+
+    >>> text_indentation("hhhhhhhhhh")
+    hhhhhhhhhh
+
+
+================
+| Invalid input|
+================
+    ## Non-string input ##
+
+    >>> text_indentation(1)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    ## List input instead of a string ##
+
+    >>> text_indentation(["Anas."])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
