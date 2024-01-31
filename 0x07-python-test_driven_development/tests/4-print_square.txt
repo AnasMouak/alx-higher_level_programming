@@ -1,0 +1,64 @@
+# 4-print_square.txt
+
+This is a file containing doctests for the print_square function.
+
+# Importing the print_square function
+>>> print_square = __import__('4-print_square').print_square
+
+===============
+| Valid Input |
+===============
+    ## Printing a square of size 3 ##
+
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+    ## Printing a square of size 3 ##
+
+    >>> print_square(1)
+    #
+
+    ## Printing an empty square of size 0 ##
+
+    >>> print_square(0)
+
+
+================
+| Invalid input|
+================
+    ## Non-integer size ##
+
+    >>> print_square("Anas")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+    ## Negative size ##
+
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+    ## None as size ##
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+    ## Non-integer float as size ##
+
+    >>> print_square(-1.3)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+    ## Missing required argument ##
+
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
