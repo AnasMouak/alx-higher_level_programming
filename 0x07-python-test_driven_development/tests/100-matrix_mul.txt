@@ -106,6 +106,12 @@ This is a file containing doctests for the matrix_mul function.
     ValueError: m_a and m_b can't be multiplied
 
     ## Missing required arguments ##
+	
+    >>> print(matrix_mul([[1, 2], [3, 4]])) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 1 required positional argument: 
+    'm_b'
 
     >>> print(matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
