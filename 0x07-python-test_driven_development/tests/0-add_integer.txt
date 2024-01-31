@@ -42,3 +42,8 @@ This is a file containing doctests for the add_integer function.
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
+
+    >>> add_integer(6, float('nan'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
