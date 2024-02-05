@@ -1,0 +1,55 @@
+# 7-base_geometry.tx
+
+This is a file containing doctests for the BaseGeometry class.
+
+# Importing the BaseGeometry class
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+==============
+| Valid Input|
+==============
+    ##  valid integer  ##
+
+    >>> bg1 = BaseGeometry()
+    >>> bg1.integer_validator("age", 26)
+    >>> bg1.integer_validator("weight", 55)
+    >>> bg1.integer_validator("height", 171)
+    
+
+================
+| InValid Input|
+================
+    ## Invalid integer ##
+
+    >>> bg1.integer_validator("age", "age")
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+    >>> bg1.integer_validator("height", -1.71)
+    Traceback (most recent call last):
+        ...
+    TypeError: height must be an integer
+    >>> bg1.integer_validator("height", 1.71)
+    Traceback (most recent call last):
+        ...
+    TypeError: height must be an integer
+    >>> bg1.integer_validator("A.vision", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: A.vision must be greater than 0
+    >>> bg1.integer_validator("name")
+    Traceback (most recent call last):
+    	      ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    >>> bg1.integer_validator()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    >>> bg1.integer_validator("count", 1, 2)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+    >>> bg1.area()
+    Traceback (most recent call last):
+    	      ...
+    Exception: area() is not implemented
