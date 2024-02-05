@@ -45,6 +45,18 @@ This is a file containing doctests for the BaseGeometry class.
     Traceback (most recent call last):
         ...
     TypeError: height must be an integer
+    >>> bg1.integer_validator("height", (1, 2))
+    Traceback (most recent call last):
+    	      ...
+    TypeError: height must be an integer
+    >>> bg1.integer_validator("height", [1, 2])
+    Traceback (most recent call last):
+    	      ...
+    TypeError: height must be an integer
+    >>> bg1.integer_validator("height", {2, 1})
+    Traceback (most recent call last):
+    	      ...
+    TypeError: height must be an integer
     >>> bg1.integer_validator("name")
     Traceback (most recent call last):
     	      ...
