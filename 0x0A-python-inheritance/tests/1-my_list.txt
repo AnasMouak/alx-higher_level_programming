@@ -1,0 +1,44 @@
+# 1-my_list.txt
+
+This is a file containing doctests for the MyList class.
+
+# Importing the MyList class
+>>> MyList = __import__('1-my_list').MyList
+
+==============
+| Valid Input|
+==============
+    ##  sorted list ##
+
+    >>> MyList()
+    []
+    >>> MyList([3, 1, 4, 1, 5])
+    [3, 1, 4, 1, 5]
+    >>> MyList.print_sorted([7, 8, 1])
+    [1, 7, 8]
+    >>> MyList.print_sorted([1, 1, 1])
+    [1, 1, 1]
+    >>> MyList.print_sorted([1])
+    [1]
+    >>> MyList.print_sorted([])
+    []
+    >>> a = [4, 8, 2]
+    >>> my_list2 = MyList(a)
+    >>> print(my_list2)
+    [4, 8, 2]
+    >>> my_list2.print_sorted()
+    [2, 4, 8]
+
+================
+| InValid Input|
+================
+    ## Missing argument ##
+
+    >>> MyList.print_sorted()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_sorted() missing 1 required positional argument: 'self'
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    NameError: name 'my_list' is not defined
