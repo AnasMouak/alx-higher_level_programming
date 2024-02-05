@@ -37,7 +37,6 @@ This is a file containing doctests for the BaseGeometry class.
     Traceback (most recent call last):
         ...
     ValueError: A.vision must be greater than 0
-    >>> bg1.integer_validator("name")
     >>> bg1.integer_validator("height", None)
     Traceback (most recent call last):
         ...
@@ -46,6 +45,7 @@ This is a file containing doctests for the BaseGeometry class.
     Traceback (most recent call last):
         ...
     TypeError: height must be an integer
+    >>> bg1.integer_validator("name")
     Traceback (most recent call last):
     	      ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
