@@ -4,6 +4,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """
     Represents a square, a special case of a rectangle where width == height.
@@ -87,7 +88,7 @@ class Square(Rectangle):
         Returns:
             dict: Dictionary containing the attributes of the Square.
         """
-        #return self.__dict__
+
         return {
             'id': self.id,
             'size': self.size,

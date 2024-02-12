@@ -4,6 +4,8 @@
 import json
 import csv
 import os
+import turtle
+
 
 class Base:
     """Represents a base class for managing object IDs."""
@@ -21,7 +23,7 @@ class Base:
         Returns:
         - None
         """
-        if id != None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -42,7 +44,7 @@ class Base:
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         """
@@ -55,7 +57,8 @@ class Base:
             None
         """
         if list_objs is None:
-           list_objs = []
+            list_objs = []
+
         with open(cls.__name__ + ".json", "w", encoding="utf-8") as f:
             n = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
             f.write(n)
@@ -75,7 +78,7 @@ class Base:
         if json_string is None or json_string == []:
             return []
         return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         """
@@ -96,7 +99,7 @@ class Base:
 
         dummy_instance.update(**dictionary)
         return dummy_instance
-    
+
     @classmethod
     def load_from_file(cls):
         """
@@ -115,7 +118,7 @@ class Base:
         with open(filename,  encoding="utf-8") as f:
             n = cls.from_json_string(f.read())
             return [cls.create(**i) for i in n]
-        
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """

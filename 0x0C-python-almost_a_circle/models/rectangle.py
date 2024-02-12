@@ -4,6 +4,7 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """Represents a rectangle."""
 
@@ -119,17 +120,17 @@ class Rectangle(Base):
         - int: The area of the Rectangle.
         """
         return self.__width * self.__height
-    
+
     def display(self):
         """
         Displays the Rectangle with "#" symbols including its position (x, y).
-        
+
         If the width or height is 0, it prints an empty line.
 
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        
+
         result = ""
         for _ in range(self.__y):
             result += "\n"
@@ -149,20 +150,21 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
-    
+
     def update(self, *args, **kwargs):
         """
         Updates the attributes of the Rectangle.
 
         Args:
-            *args: Variable number of arguments in the order (width, height, x, y)
+            *args: Variable number of arguments in the order
+            (width, height, x, y)
         """
         if args:
             if len(args) >= 1:
                 self.id = args[0]
             if len(args) >= 2:
                 self.width = args[1]
-            if len(args) >= 3:   
+            if len(args) >= 3:
                 self.height = args[2]
             if len(args) >= 4:
                 self.x = args[3]
