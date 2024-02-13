@@ -2,6 +2,8 @@
 """Unittest for class Rectangle
 """
 import unittest
+import sys
+import io
 
 from models.base import Base
 from models.rectangle import Rectangle
@@ -280,13 +282,30 @@ class TestRectangle_Display(unittest.TestCase):
     """
     Test case class to validate the display method of Rectangle class.
     """
+    @staticmethod
+    def display_stdout(rect):
+        """Captures and returns text printed to stdout.
+
+        Args:
+            rect (Rectangle): The Rectangle to print to stdout.
+        Returns:
+            The text printed to stdout .
+        """
+        display = io.StringIO()
+        sys.stdout = display
+        rect.display()
+        sys.stdout = sys.__stdout__
+        return display
+
     def test_display1(self):
         r = Rectangle(2, 2)
-        self.assertEqual(r.display(), "##\n##\n")
+        display = TestRectangle_Display.display_stdout(r)
+        self.assertEqual(display.getvalue(), "##\n##\n")
 
     def test_display2(self):
         r = Rectangle(4, 2)
-        self.assertEqual(r.display(), "####\n####\n")
+        display = TestRectangle_Display.display_stdout(r)
+        self.assertEqual(display.getvalue(), "####\n####\n")
 
     def test_displayErr(self):
         r = Rectangle(1, 2, 2, 1)
@@ -295,15 +314,18 @@ class TestRectangle_Display(unittest.TestCase):
 
     def test_display_with_position1(self):
         r = Rectangle(2, 2, 1, 1)
-        self.assertEqual(r.display(), "\n ##\n ##\n")
+        display = TestRectangle_Display.display_stdout(r)
+        self.assertEqual(display.getvalue(), "\n ##\n ##\n")
 
     def test_display_with_position2(self):
         r = Rectangle(2, 2, 2, 0)
-        self.assertEqual(r.display(), "  ##\n  ##\n")
+        display = TestRectangle_Display.display_stdout(r)
+        self.assertEqual(display.getvalue(), "  ##\n  ##\n")
 
     def test_display_with_position3(self):
         r = Rectangle(4, 2, 0, 2)
-        self.assertEqual(r.display(), "\n\n####\n####\n")
+        display = TestRectangle_Display.display_stdout(r)
+        self.assertEqual(display.getvalue(), "\n\n####\n####\n")
 
 
 class TestRectangle_str(unittest.TestCase):

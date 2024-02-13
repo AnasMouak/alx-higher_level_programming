@@ -2,6 +2,8 @@
 """Unittest for class Square
 """
 import unittest
+import sys
+import io
 
 from models.base import Base
 from models.square import Square
@@ -246,17 +248,34 @@ class TestSquare_Area(unittest.TestCase):
             s.area(4)
 
 
-class TestRectangle_Display(unittest.TestCase):
+class TestSquare_Display(unittest.TestCase):
     """
     Test case class to validate the display method of Square class.
     """
+    @staticmethod
+    def display_stdout(square):
+        """Captures and returns text printed to stdout.
+
+        Args:
+            rect (Square): The Square to print to stdout.
+        Returns:
+            The text printed to stdout .
+        """
+        display = io.StringIO()
+        sys.stdout = display
+        square.display()
+        sys.stdout = sys.__stdout__
+        return display
+
     def test_display1(self):
         s = Square(2)
-        self.assertEqual(s.display(), "##\n##\n")
+        display = TestSquare_Display.display_stdout(s)
+        self.assertEqual(display.getvalue(), "##\n##\n")
 
     def test_display2(self):
         s = Square(4)
-        self.assertEqual(s.display(), "####\n####\n####\n####\n")
+        display = TestSquare_Display.display_stdout(s)
+        self.assertEqual(display.getvalue(), "####\n####\n####\n####\n")
 
     def test_displayErr(self):
         s = Square(1, 2, 2, 1)
@@ -265,18 +284,21 @@ class TestRectangle_Display(unittest.TestCase):
 
     def test_display_with_position1(self):
         s = Square(2, 1, 1)
-        self.assertEqual(s.display(), "\n ##\n ##\n")
+        display = TestSquare_Display.display_stdout(s)
+        self.assertEqual(display.getvalue(), "\n ##\n ##\n")
 
     def test_display_with_position2(self):
         s = Square(2, 2, 0)
-        self.assertEqual(s.display(), "  ##\n  ##\n")
+        display = TestSquare_Display.display_stdout(s)
+        self.assertEqual(display.getvalue(), "  ##\n  ##\n")
 
     def test_display_with_position3(self):
         s = Square(4, 0, 2)
-        self.assertEqual(s.display(), "\n\n####\n####\n####\n####\n")
+        display = TestSquare_Display.display_stdout(s)
+        self.assertEqual(display.getvalue(), "\n\n####\n####\n####\n####\n")
 
 
-class TestRectangle_str(unittest.TestCase):
+class TestSquare_str(unittest.TestCase):
     """
     Test case class to validate the __str__ method of Square class.
     """
@@ -309,7 +331,7 @@ class TestRectangle_str(unittest.TestCase):
             s.__str__(4)
 
 
-class TestRectangle_Update(unittest.TestCase):
+class TestSquare_Update(unittest.TestCase):
     """
     Test case class to validate the update method of Square class.
     """
