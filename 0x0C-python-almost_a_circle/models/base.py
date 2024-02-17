@@ -167,3 +167,46 @@ class Base:
             n = csv.DictReader(f, fieldnames=fieldnames)
             n = [dict([k, int(v)] for k, v in d.items()) for d in n]
             return [cls.create(**i) for i in n]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares using Turtle.
+
+        Args:
+            list_rectangles (list): List of Rectangle objects.
+            list_squares (list): List of Square objects.
+
+        Returns:
+            None
+        """
+        screen = turtle.Screen()
+        screen.setup(width=600, height=600)
+        screen.title("Rectangles and Squares")
+
+        t = turtle.Turtle()
+        t.speed(0)
+
+        def draw_rectangle(x, y, width, height):
+            t.penup()
+            t.goto(x, y)
+            t.pendown()
+            for _ in range(2):
+                t.forward(width)
+                t.left(90)
+                t.forward(height)
+                t.left(90)
+
+        def draw_square(x, y, side_length):
+            draw_rectangle(x, y, side_length, side_length)
+
+        t.color("blue")
+        for rectangle in list_rectangles:
+            draw_rectangle(rectangle.x, rectangle.y, rectangle.width, rectangle.height)
+
+        t.color("red")
+        for square in list_squares:
+            draw_square(square.x, square.y, square.side_length)
+
+        t.hideturtle()
+        turtle.done()
