@@ -20,7 +20,9 @@ def main():
 
     cursor = db_connection.cursor()
 
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'")
+    cursor.execute("""SELECT * FROM states WHERE name LIKE 'N%' ORDER BY
+                    states.id""")
+
     result = cursor.fetchall()
     for row in result:
         print(row)
