@@ -19,7 +19,7 @@ def main():
 
     search_states = sys.argv[4]
 
-    cursor.execute("SELECT * FROM states WHERE name='{}'"
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
                    .format(search_states))
 
     result = cursor.fetchall()
