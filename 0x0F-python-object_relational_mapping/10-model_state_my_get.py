@@ -22,7 +22,7 @@ if __name__ == "__main__":
     states = session.query(State).all()
 
     for state in states:
-        if name_state in state.name:
+        if name_state == state.name:
             print(state.id)
             break
 
