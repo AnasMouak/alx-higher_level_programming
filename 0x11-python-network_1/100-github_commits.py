@@ -14,6 +14,6 @@ if __name__ == "__main__":
     content = response.json()[:10]
     for commit in content:
         commit_info = commit.get('commit')
-        tree_info = commit_info.get('tree', {}).get('sha', 'Unknown')
+        sha = commit.get('sha')
         author_name = commit_info.get('author', {}).get('name', 'Unknown')
-        print(f"{tree_info}: {author_name}")
+        print(f"{sha}: {author_name}")
