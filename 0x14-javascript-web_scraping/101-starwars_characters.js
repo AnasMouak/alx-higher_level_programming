@@ -2,7 +2,7 @@
 
 const request = require('request');
 
-function fetchCharacterName(url, callback) {
+function fetchCharacterName (url, callback) {
   request(url, (error, response, body) => {
     if (error) {
       callback(error);
@@ -13,7 +13,7 @@ function fetchCharacterName(url, callback) {
   });
 }
 
-function fetchCharactersInOrder(characters, index) {
+function fetchCharactersInOrder (characters, index) {
   if (index >= characters.length) {
     return;
   }
